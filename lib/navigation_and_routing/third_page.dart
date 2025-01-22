@@ -13,7 +13,7 @@ class ThirdPage extends StatelessWidget {
               onPressed: () => Navigator.pushNamedAndRemoveUntil(
                   context, '/first', (route) => false),
               child: const Text("Back to First Page"))),
-      bottomNavigationBar: ReusableBottomAppBar(),
+      bottomNavigationBar: const ReusableBottomAppBar(),
     );
   }
 }

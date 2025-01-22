@@ -115,8 +115,7 @@ class _AssignmentIIIUiState extends State<AssignmentIIIUi> {
                         ),
                         validator: (value) => phonenumberValidator(value)),
                     const SizedBox(height: 30),
-                    Container(
-                        child: Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text("Choose A Major",
@@ -151,7 +150,7 @@ class _AssignmentIIIUiState extends State<AssignmentIIIUi> {
                           style: const TextStyle(color: Colors.red),
                         ),
                       ],
-                    )),
+                    ),
                     const SizedBox(height: 30),
                     ElevatedButton(
                         onPressed: () {

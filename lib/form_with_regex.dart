@@ -9,7 +9,6 @@ class FormWidgetRegex extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _FormWithRegexState();
   }
 }
@@ -35,7 +34,7 @@ class _FormWithRegexState extends State<FormWidgetRegex> {
       ),
       home: Scaffold(
           body: Padding(
-              padding: EdgeInsets.all(100),
+              padding: const EdgeInsets.all(100),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -95,10 +94,10 @@ class _FormWithRegexState extends State<FormWidgetRegex> {
                     ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            if(_formKey.currentState!.validate()) {
-                                message = "Registration Successful!";
-                            }else{
-                                message = "";
+                            if (_formKey.currentState!.validate()) {
+                              message = "Registration Successful!";
+                            } else {
+                              message = "";
                             }
                           });
                         },
@@ -108,9 +107,8 @@ class _FormWithRegexState extends State<FormWidgetRegex> {
                       message,
                       textAlign: TextAlign.left,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w900,
-                        color: Color.fromRGBO(41, 148, 12, 1.0)
-                      ),
+                          fontWeight: FontWeight.w900,
+                          color: Color.fromRGBO(41, 148, 12, 1.0)),
                     )
                   ],
                 ),

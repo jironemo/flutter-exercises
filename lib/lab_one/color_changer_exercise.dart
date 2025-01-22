@@ -9,7 +9,6 @@ class ColorChanger extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _ColorChangerState();
   }
 }
@@ -27,7 +26,7 @@ class _ColorChangerState extends State<ColorChanger> {
             flex: 2,
             child: Container(
               color: backgroundColor,
-              child: Center(child: Text("Background")),
+              child: const Center(child: Text("Background")),
             )),
         Expanded(
             flex: 1,

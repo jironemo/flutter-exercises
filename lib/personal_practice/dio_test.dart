@@ -2,13 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return MyAppState();
   }
 }
@@ -35,7 +36,7 @@ class MyAppState extends State<MyApp> {
                 final rooms = snapshot.data;
                 return buildRooms(rooms);
               } else {
-                return Text("No data available");
+                return const Text("No data available");
               }
             }),
       )),
@@ -48,14 +49,14 @@ class MyAppState extends State<MyApp> {
       itemBuilder: (context, index) {
         final room = rooms[index];
         return Padding(
-            padding: EdgeInsets.all(50),
+            padding: const EdgeInsets.all(50),
             child: Container(
                 decoration:
                     BoxDecoration(border: Border.all(color: Colors.black38)),
                 child: Padding(
                   padding: const EdgeInsets.all(40),
                   child: Column(children: [
-                    Text(room.room_no),
+                    Text(room.roomNo),
                     Text(room.roomType?.typeName as String)
                   ]),
                 )));
@@ -73,19 +74,19 @@ class MyAppState extends State<MyApp> {
 
 class Room {
   int id = 0;
-  String room_no = "";
+  String roomNo = "";
   RoomType? roomType;
 
-  Room({required this.id, required this.room_no, this.roomType});
+  Room({required this.id, required this.roomNo, this.roomType});
 
   factory Room.empty() {
-    return Room(id: 0, room_no: "");
+    return Room(id: 0, roomNo: "");
   }
 
   factory Room.fromJson(Map<String, dynamic> json) {
     return Room(
         id: json['id'],
-        room_no: json['room_no'],
+        roomNo: json['room_no'],
         roomType: RoomType.fromJson(json['roomType']));
   }
 }

@@ -9,7 +9,6 @@ class MyApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return MyAppState();
   }
 }
@@ -28,13 +27,13 @@ class MyAppState extends State<MyApp> {
       bottomNavigationBar: NavigationBar(
           selectedIndex: _currentIndex,
           onDestinationSelected: (index) => setState(() {
-            _currentIndex = index;
-          }),
+                _currentIndex = index;
+              }),
           destinations: const [
-        NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-        NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
-        NavigationDestination(icon: Icon(Icons.settings), label: 'Settings')
-      ]),
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
+            NavigationDestination(icon: Icon(Icons.settings), label: 'Settings')
+          ]),
     ));
   }
 }

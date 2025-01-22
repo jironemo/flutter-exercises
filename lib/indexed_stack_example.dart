@@ -16,15 +16,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: IndexedStackExample(),
+      home: const IndexedStackExample(),
     );
   }
 }
 
 class IndexedStackExample extends StatefulWidget {
+  const IndexedStackExample({super.key});
+
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _IndexedStackExampleState();
   }
 }
@@ -34,35 +35,31 @@ class _IndexedStackExampleState extends State<IndexedStackExample> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex,
         children: const [
-          Center(
-              child: Text("Home Page", style: TextStyle(fontSize: 20))),
-          Center(
-              child: Text("Search Page", style: TextStyle(fontSize: 20))),
-          Center(
-              child: Text("Profile Page", style: TextStyle(fontSize: 20)))
+          Center(child: Text("Home Page", style: TextStyle(fontSize: 20))),
+          Center(child: Text("Search Page", style: TextStyle(fontSize: 20))),
+          Center(child: Text("Profile Page", style: TextStyle(fontSize: 20)))
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (value){
-          setState(() {
-            _currentIndex = value;
-          });
-        },
-        selectedItemColor: Colors.blue,
+          currentIndex: _currentIndex,
+          onTap: (value) {
+            setState(() {
+              _currentIndex = value;
+            });
+          },
+          selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.grey,
           backgroundColor: Colors.white,
-          type:BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.fixed,
           items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-      ]),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          ]),
     );
   }
 }

@@ -19,14 +19,12 @@ class _TextFieldWidgetDemoState extends State<TextFieldWidgetDemo> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _textEditingController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(

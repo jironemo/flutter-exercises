@@ -17,12 +17,17 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/home',
-      routes: {'/home': (context) => Home(), '/next': (context) => Next()},
+      routes: {
+        '/home': (context) => const Home(),
+        '/next': (context) => const Next()
+      },
     );
   }
 }
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +42,10 @@ class Home extends StatelessWidget {
 }
 
 class Next extends StatelessWidget {
+  const Next({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         body: Center(
             child: Text(ModalRoute.of(context)!.settings.arguments as String)));

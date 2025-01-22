@@ -14,11 +14,8 @@ class TextFieldWidgetDemo extends StatefulWidget {
 }
 
 class _TextFieldWidgetDemoState extends State<TextFieldWidgetDemo> {
-
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(

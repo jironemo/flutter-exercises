@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
-  runApp(AppBarDemo());
+  runApp(const AppBarDemo());
 }
 
 class AppBarDemo extends StatelessWidget {
@@ -23,7 +23,7 @@ class AppBarDemo extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List<Widget>.filled(
-                    5, Icon(Icons.star, color: Colors.yellow)),
+                    5, const Icon(Icons.star, color: Colors.yellow)),
               ),
               const Text(
                 "Make It Merry Tree",

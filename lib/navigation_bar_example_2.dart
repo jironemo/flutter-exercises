@@ -9,7 +9,6 @@ class MyApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return MyAppState();
   }
 }
@@ -19,15 +18,40 @@ class MyAppState extends State<MyApp> {
   final List<Widget> _pages = [
     const Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [Icon(Icons.home,size:150,color: Colors.blueGrey,), Text("Welcome to the home screen!",style: TextStyle(fontSize: 20),textAlign: TextAlign.center,)],
+      children: [
+        Icon(
+          Icons.home,
+          size: 150,
+          color: Colors.blueGrey,
+        ),
+        Text(
+          "Welcome to the home screen!",
+          style: TextStyle(fontSize: 20),
+          textAlign: TextAlign.center,
+        )
+      ],
     ),
     const Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [Icon(Icons.search,size: 150,color:Colors.orange), Text("Search for anything!",style: TextStyle(fontSize: 20),textAlign: TextAlign.center,)],
+      children: [
+        Icon(Icons.search, size: 150, color: Colors.orange),
+        Text(
+          "Search for anything!",
+          style: TextStyle(fontSize: 20),
+          textAlign: TextAlign.center,
+        )
+      ],
     ),
     const Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [Icon(Icons.settings,size: 150,color:Colors.lightBlue), Text("Adjust your preferences here!",style: TextStyle(fontSize: 20),textAlign: TextAlign.center,)],
+      children: [
+        Icon(Icons.settings, size: 150, color: Colors.lightBlue),
+        Text(
+          "Adjust your preferences here!",
+          style: TextStyle(fontSize: 20),
+          textAlign: TextAlign.center,
+        )
+      ],
     ),
   ];
 
@@ -35,7 +59,11 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: const Text('NavigationBar Example'),backgroundColor: Colors.black38,foregroundColor: Colors.white,),
+      appBar: AppBar(
+        title: const Text('NavigationBar Example'),
+        backgroundColor: Colors.black38,
+        foregroundColor: Colors.white,
+      ),
       body: Center(
         child: _pages[_currentIndex],
       ),

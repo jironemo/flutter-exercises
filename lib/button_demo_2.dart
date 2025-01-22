@@ -28,7 +28,6 @@ class _ButtonWidgetDemo2State extends State<ButtonWidgetDemo2> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

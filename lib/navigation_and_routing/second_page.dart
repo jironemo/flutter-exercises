@@ -12,7 +12,7 @@ class SecondPage extends StatelessWidget {
           child: ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/third'),
               child: const Text("Go to Third Page!"))),
-      bottomNavigationBar: ReusableBottomAppBar(),
+      bottomNavigationBar: const ReusableBottomAppBar(),
     );
   }
 }

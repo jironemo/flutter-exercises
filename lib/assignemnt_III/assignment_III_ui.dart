@@ -21,8 +21,7 @@ class AssignmentIIIUi extends StatefulWidget {
 }
 
 String? emailValidator(value) {
-  RegExp emailExp = RegExp(
-      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}');
+  RegExp emailExp = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}');
   if (value == null || value.isEmpty) {
     return "Please enter your email";
   } else if (!emailExp.hasMatch(value)) {
@@ -99,24 +98,22 @@ class _AssignmentIIIUiState extends State<AssignmentIIIUi> {
                         border: OutlineInputBorder(),
                         hintText: "Enter email",
                       ),
-                      validator: (value) => emailValidator(value)
-                      ,
+                      validator: (value) => emailValidator(value),
                     ),
                     const SizedBox(height: 30),
                     TextFormField(
-                      controller: _phoneNumberController,
-                      decoration: const InputDecoration(
-                        suffixIcon: Padding(
-                            padding: EdgeInsets.all(2),
-                            child: Icon(FontAwesomeIcons.circleCheck)),
-                        prefixIcon: Padding(
-                            padding: EdgeInsets.all(2),
-                            child: Icon(FontAwesomeIcons.phone)),
-                        border: OutlineInputBorder(),
-                        hintText: "Enter Phone Number",
-                      ),
-                      validator: (value) => phonenumberValidator(value)
-                    ),
+                        controller: _phoneNumberController,
+                        decoration: const InputDecoration(
+                          suffixIcon: Padding(
+                              padding: EdgeInsets.all(2),
+                              child: Icon(FontAwesomeIcons.circleCheck)),
+                          prefixIcon: Padding(
+                              padding: EdgeInsets.all(2),
+                              child: Icon(FontAwesomeIcons.phone)),
+                          border: OutlineInputBorder(),
+                          hintText: "Enter Phone Number",
+                        ),
+                        validator: (value) => phonenumberValidator(value)),
                     const SizedBox(height: 30),
                     Container(
                         child: Column(
@@ -158,14 +155,12 @@ class _AssignmentIIIUiState extends State<AssignmentIIIUi> {
                     const SizedBox(height: 30),
                     ElevatedButton(
                         onPressed: () {
-                          if (_selectedMajor.isEmpty ||
-                              _selectedMajor == null) {
+                          if (_selectedMajor.isEmpty) {
                             setState(() {
                               _majorErrorMessage = "Please select a major.";
                             });
                           }
                           if (_formKey.currentState!.validate() &&
-                              _selectedMajor != null &&
                               _selectedMajor.isNotEmpty) {
                             setState(() {
                               email = _emailController.text;

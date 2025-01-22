@@ -6,9 +6,9 @@ void main() {
 }
 
 class AppBarDemo extends StatelessWidget {
-  AppBarDemo({super.key});
+  const AppBarDemo({super.key});
 
-  List<Widget> card_list = List.filled(
+  static List<Widget> cardList = List.filled(
       3,
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -22,7 +22,8 @@ class AppBarDemo extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: List<Widget>.filled(5,Icon(Icons.star, color: Colors.yellow)),
+                children: List<Widget>.filled(
+                    5, Icon(Icons.star, color: Colors.yellow)),
               ),
               const Text(
                 "Make It Merry Tree",
@@ -49,9 +50,8 @@ class AppBarDemo extends StatelessWidget {
                 leading: const Icon(FontAwesomeIcons.facebook)),
             body: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: card_list,
-                ))
-    ));
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: cardList,
+            ))));
   }
 }

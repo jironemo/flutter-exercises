@@ -22,6 +22,10 @@ class BookingInfoPage extends StatelessWidget {
                           },
                           child: const Text('OK'),
                         ),
+                        TextButton(
+                          child: const Text('Cancel'),
+                          onPressed: () => Navigator.pop(context),
+                        )
                       ],
                     );
                   });

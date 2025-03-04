@@ -10,11 +10,11 @@ class ProductUpdateScreen extends StatefulWidget {
 }
 
 class _ProductUpdateScreenState extends State<ProductUpdateScreen> {
-  TextEditingController _searchController = TextEditingController();
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _priceController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _priceController = TextEditingController();
   Product? _selectedProduct;
-  String _message="";
+  String _message = "";
 
   void _searchProduct() async {
     String name = _searchController.text.trim();
@@ -26,7 +26,7 @@ class _ProductUpdateScreenState extends State<ProductUpdateScreen> {
       return;
     }
     Product? products = await DatabaseHelper.instance.searchProductByName(name);
-    if (products!=null) {
+    if (products != null) {
       setState(() {
         _selectedProduct = products;
         _nameController.text = _selectedProduct!.name;
@@ -35,9 +35,8 @@ class _ProductUpdateScreenState extends State<ProductUpdateScreen> {
     } else {
       setState(() {
         _selectedProduct = null;
-        _message="Product not found";
+        _message = "Product not found";
       });
-
     }
   }
 
@@ -47,21 +46,25 @@ class _ProductUpdateScreenState extends State<ProductUpdateScreen> {
     final updatedProduct = Product(
       id: _selectedProduct!.id,
       name: _nameController.text.trim(),
-      price: double.tryParse(_priceController.text.trim()) ?? _selectedProduct!.price,
+      price: double.tryParse(_priceController.text.trim()) ??
+          _selectedProduct!.price,
     );
 
     await DatabaseHelper.instance.updateItem(updatedProduct);
     setState(() {
-      _message="Product updated successfully";
+      _message = "Product updated successfully";
     });
 
-    Navigator.pop(context);
+    if (mounted) {
+      Navigator.pop(context);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Update Product"), backgroundColor: Colors.teal),
+      appBar: AppBar(
+          title: const Text("Update Product"), backgroundColor: Colors.teal),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -80,27 +83,32 @@ class _ProductUpdateScreenState extends State<ProductUpdateScreen> {
             const SizedBox(height: 20),
 
             // Product Update Form (Only visible if a product is found)
-        _selectedProduct != null
-            ? Column(
-          children: [
-              TextField(
-                controller: _nameController,
-                decoration: const InputDecoration(labelText: "Product Name"),
-              ),
-              const SizedBox(height: 10),
-              TextField(
-                controller: _priceController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(labelText: "Product Price"),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _updateProduct,
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
-                child: const Text("Update Product"),
-              ),
-            ],
-        )  : Text(_message, style: const TextStyle(fontSize: 16, color: Colors.red)),
+            _selectedProduct != null
+                ? Column(
+                    children: [
+                      TextField(
+                        controller: _nameController,
+                        decoration:
+                            const InputDecoration(labelText: "Product Name"),
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        controller: _priceController,
+                        keyboardType: TextInputType.number,
+                        decoration:
+                            const InputDecoration(labelText: "Product Price"),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: _updateProduct,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.teal),
+                        child: const Text("Update Product"),
+                      ),
+                    ],
+                  )
+                : Text(_message,
+                    style: const TextStyle(fontSize: 16, color: Colors.red)),
           ],
         ),
       ),

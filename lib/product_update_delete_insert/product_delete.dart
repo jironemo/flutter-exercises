@@ -22,7 +22,7 @@ class _ProductDeleteScreenState extends State<ProductDeleteScreen> {
         _selectedProduct = null;
       });
       return;
-    }//end if
+    } //end if
 
     Product? result = await DatabaseHelper.instance.searchProductByName(name);
     setState(() {
@@ -34,7 +34,7 @@ class _ProductDeleteScreenState extends State<ProductDeleteScreen> {
         _message = "Product not found!";
       }
     });
-  }//end method
+  } //end method
 
   void _deleteProduct() async {
     if (_selectedProduct == null) {
@@ -44,7 +44,8 @@ class _ProductDeleteScreenState extends State<ProductDeleteScreen> {
       return;
     }
 
-    int result = await DatabaseHelper.instance.deleteItemByName(_selectedProduct!.name);
+    int result =
+        await DatabaseHelper.instance.deleteItemByName(_selectedProduct!.name);
 
     setState(() {
       if (result > 0) {
@@ -55,7 +56,9 @@ class _ProductDeleteScreenState extends State<ProductDeleteScreen> {
         _message = "Error deleting product!";
       }
     });
-    Navigator.pop(context);  // back previous screen
+    if (mounted) {
+      Navigator.pop(context); // back previous screen
+    }
   }
 
   @override
@@ -79,18 +82,23 @@ class _ProductDeleteScreenState extends State<ProductDeleteScreen> {
             const SizedBox(height: 20),
             _selectedProduct != null
                 ? Column(
-              children: [
-                Text("Product: ${_selectedProduct!.name}", style: const TextStyle(fontSize: 18)),
-                Text("Price: \$${_selectedProduct!.price.toStringAsFixed(2)}"),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _deleteProduct,
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  child: const Text("Delete Product", style: TextStyle(color: Colors.white)),
-                ),
-              ],
-            )
-                : Text(_message, style: const TextStyle(fontSize: 16, color: Colors.red)),
+                    children: [
+                      Text("Product: ${_selectedProduct!.name}",
+                          style: const TextStyle(fontSize: 18)),
+                      Text(
+                          "Price: \$${_selectedProduct!.price.toStringAsFixed(2)}"),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: _deleteProduct,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red),
+                        child: const Text("Delete Product",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ],
+                  )
+                : Text(_message,
+                    style: const TextStyle(fontSize: 16, color: Colors.red)),
           ],
         ),
       ),

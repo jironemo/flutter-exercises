@@ -39,7 +39,7 @@ class _ProductInsertScreenState extends State<ProductInsertScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    prefixIcon: Icon(Icons.shopping_bag),
+                    prefixIcon: const Icon(Icons.shopping_bag),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -59,7 +59,7 @@ class _ProductInsertScreenState extends State<ProductInsertScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    prefixIcon: Icon(Icons.attach_money),
+                    prefixIcon: const Icon(Icons.attach_money),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -79,7 +79,7 @@ class _ProductInsertScreenState extends State<ProductInsertScreen> {
                   Center(
                     child: Text(
                       _message!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.red,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -90,7 +90,6 @@ class _ProductInsertScreenState extends State<ProductInsertScreen> {
                 // Submit Button
                 ElevatedButton(
                   onPressed: _submitForm,
-                  child: const Text('Add Product'),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     backgroundColor: Colors.teal,
@@ -98,6 +97,7 @@ class _ProductInsertScreenState extends State<ProductInsertScreen> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
+                  child: const Text('Add Product'),
                 ),
               ],
             ),
@@ -119,7 +119,7 @@ class _ProductInsertScreenState extends State<ProductInsertScreen> {
 
       final result = await DatabaseHelper.instance.insertItem(product);
 
-      if (result != null) {
+      if (result != 0) {
         setState(() {
           _message = 'Product add successfully';
           _nameController.clear();
